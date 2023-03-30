@@ -1,10 +1,9 @@
 import tkinter as tk
 import customtkinter as ctk
 
+
 ctk.set_appearance_mode("System")
 ctk.set_default_color_theme("blue")
-
-frame_fg_bg_color = "#323232"
 
 
 class AlarmClock:
@@ -17,10 +16,10 @@ class AlarmClock:
         self.main_frame = self.create_main_frame()
 
     def create_main_frame(self):
-        main_fram = ctk.CTkFrame(
-            self.window, bg_color=frame_fg_bg_color, fg_color=frame_fg_bg_color)
-        main_fram.pack()
-        return main_fram
+        main_frame = ctk.CTkFrame(
+            self.window, width=480, height=180, corner_radius=10)
+        main_frame.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
+        return main_frame
 
     def run(self):
         self.window.mainloop()
