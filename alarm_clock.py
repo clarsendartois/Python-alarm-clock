@@ -13,13 +13,23 @@ class AlarmClock:
         self.window.resizable(0, 0)
         self.window.title("CLARSEN: Alarm Clock")
 
-        self.main_frame = self.create_main_frame()
+        self.frame = self.create_frame()
+        self.button = self.create_buttons()
 
-    def create_main_frame(self):
-        main_frame = ctk.CTkFrame(
-            self.window, width=480, height=180, corner_radius=10)
-        main_frame.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
-        return main_frame
+    def create_frame(self):
+        frame = ctk.CTkFrame(self.window, width=480,
+                             height=180, corner_radius=10)
+        frame.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
+        return frame
+
+    def create_buttons(self):
+        self.create_edit_play()
+
+    def create_edit_play(self):
+        photo = tk.PhotoImage(file=".\img\\play.png")
+        button = ctk.CTkButton(self.frame, text="",
+                               image=photo, border_width=2, width=10)
+        button.place(relx=0.5, rely=0.5, x=-20, y=45)
 
     def run(self):
         self.window.mainloop()
